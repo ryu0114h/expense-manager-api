@@ -29,10 +29,9 @@ public class ExpenseController {
     }
 
     @PostMapping("/expenses")
-    public void saveExpenseDetails(@RequestBody Expense expense) {
-        System.out.println("expense details " + expense);
+    public Expense saveExpenseDetails(@RequestBody Expense expense) {
+        return expenseService.saveExpenseDetails(expense);
     }
-
 
     @DeleteMapping("/expenses")
     public void deleteExpenseById(@RequestParam Long id) {
