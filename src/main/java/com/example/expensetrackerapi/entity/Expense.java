@@ -34,4 +34,12 @@ public class Expense {
     private String category;
 
     private Date date;
+
+//    @Column(name = "created_at", nullable = false, updatable = false)
+//    @CreationTimestamp
+//    private Timestamp createdAt;
+//
+//    @Column(name = "updated_at")
+//    @UpdateTimestamp
+//    private Timestamp updatedAt;
 }
