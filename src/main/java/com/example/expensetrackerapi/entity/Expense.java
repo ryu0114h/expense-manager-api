@@ -1,6 +1,7 @@
 package com.example.expensetrackerapi.entity;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Data
 @AllArgsConstructor
@@ -35,11 +38,11 @@ public class Expense {
 
     private Date date;
 
-//    @Column(name = "created_at", nullable = false, updatable = false)
-//    @CreationTimestamp
-//    private Timestamp createdAt;
-//
-//    @Column(name = "updated_at")
-//    @UpdateTimestamp
-//    private Timestamp updatedAt;
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @Column(name = "updated_at")
+    @UpdateTimestamp
+    private Date updatedAt;
 }
