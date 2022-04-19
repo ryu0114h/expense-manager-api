@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +29,8 @@ public class Expense {
     private Long id;
 
     @Column(name = "expense_name")
+    @NotNull(message = "Expense name must not be null")
+    @Size(min = 3, message = "Expense name must be at least 3 characters")
     private String name;
 
     private String description;
