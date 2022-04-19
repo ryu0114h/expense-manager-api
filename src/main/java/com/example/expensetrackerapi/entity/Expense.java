@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -29,17 +30,20 @@ public class Expense {
     private Long id;
 
     @Column(name = "expense_name")
-    @NotNull(message = "Expense name must not be null")
+    @NotBlank(message = "Expense name must not be null")
     @Size(min = 3, message = "Expense name must be at least 3 characters")
     private String name;
 
     private String description;
 
     @Column(name = "expense_amount")
+    @NotNull(message = "Expense amount should not be null")
     private BigDecimal amount;
 
+    @NotBlank(message = "Category should not be null")
     private String category;
 
+    @NotNull(message = "Date must not be null")
     private Date date;
 
     @Column(name = "created_at", nullable = false, updatable = false)
