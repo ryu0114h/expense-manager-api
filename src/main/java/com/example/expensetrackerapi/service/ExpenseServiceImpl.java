@@ -1,6 +1,7 @@
 package com.example.expensetrackerapi.service;
 
 import com.example.expensetrackerapi.entity.Expense;
+import com.example.expensetrackerapi.exception.ResourceNotFoundException;
 import com.example.expensetrackerapi.repository.ExpenseRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class ExpenseServiceImpl implements ExpenseService {
         if (expense.isPresent()) {
             return expense.get();
         }
-        throw new RuntimeException("Expense is not found for the id " + id);
+        throw new ResourceNotFoundException("Expense is not found for the id " + id);
     }
 
     @Override
