@@ -29,4 +29,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id).orElseThrow(() ->
                 new ItemAlreadyExistsException("User not found for the id:" + id));
     }
+
+    @Override
+    public User updateUser(UserModel user, Long id) {
+        User existingUser = readUser(id);
+        existingUser.setName(user.getName() != null ? user.getName() : existingUser.getName());
+        existingUser.setEmail(user.getEmail() != null ? user.getEmail() : existingUser.getEmail());
+        existingUser.setPassword(user.getPassword() != null ? user.getPassword() : existingUser.getPassword());
+        existingUser.setAge(user.getAge() != null ? user.getAge() : existingUser.getAge());
+        existingUser.setPassword(user.getPassword() != null ? user.getPassword() : existingUser.getPassword());
+        return userRepository.save(existingUser);
+    }
 }
