@@ -23,4 +23,10 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(user, newUser);
         return userRepository.save(newUser);
     }
+
+    @Override
+    public User readUser(Long id) {
+        return userRepository.findById(id).orElseThrow(() ->
+                new ItemAlreadyExistsException("User not found for the id:" + id));
+    }
 }
