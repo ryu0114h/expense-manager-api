@@ -2,6 +2,7 @@ package com.example.expensetrackerapi.controller;
 
 import com.example.expensetrackerapi.entity.Expense;
 import com.example.expensetrackerapi.service.ExpenseService;
+import java.sql.Date;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,14 @@ public class ExpenseController {
     @GetMapping("/expenses/name")
     public List<Expense> getExpenseByName(@RequestParam String keyword, Pageable page) {
         return expenseService.readByName(keyword, page);
+    }
+
+    @GetMapping("/expenses/date")
+    public List<Expense> getExpenseByDate(
+            @RequestParam(required = false) Date startDate,
+            @RequestParam(required = false) Date endDate,
+            Pageable page) {
+        return expenseService.readByDate(startDate, endDate, page);
     }
 
 }
