@@ -3,6 +3,7 @@ package com.example.expensetrackerapi.service;
 import com.example.expensetrackerapi.entity.Expense;
 import com.example.expensetrackerapi.exception.ResourceNotFoundException;
 import com.example.expensetrackerapi.repository.ExpenseRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,5 +52,10 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Override
     public void deleteExpenseById(Long id) {
         expenseRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Expense> readByCategory(String category, Pageable page) {
+        return expenseRepository.findByCategory(category, page).toList();
     }
 }

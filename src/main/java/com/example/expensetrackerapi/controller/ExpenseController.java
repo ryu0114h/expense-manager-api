@@ -49,4 +49,10 @@ public class ExpenseController {
     public void deleteExpenseById(@RequestParam Long id) {
         expenseService.deleteExpenseById(id);
     }
+
+    @GetMapping("/expenses/category")
+    public List<Expense> getExpenseByCategory(@RequestParam String category, Pageable page) {
+        return expenseService.readByCategory(category, page);
+    }
+
 }

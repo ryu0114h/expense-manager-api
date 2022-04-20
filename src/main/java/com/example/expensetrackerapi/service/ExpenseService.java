@@ -1,6 +1,7 @@
 package com.example.expensetrackerapi.service;
 
 import com.example.expensetrackerapi.entity.Expense;
+import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,4 +16,6 @@ public interface ExpenseService {
     Expense updateExpenseDetails(Long id, Expense expense);
 
     void deleteExpenseById(Long id);
+
+    List<Expense> readByCategory(String category, Pageable page);
 }
