@@ -14,8 +14,8 @@
     <name>expensetrackerapi</name>
     <description>Spring Boot REST API for Expense tracker</description>
     <properties>
-        <!--        <java.version>11</java.version>-->
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
+        <!--        <java.version>1.8</java.version>-->
     </properties>
     <dependencies>
         <dependency>
@@ -44,16 +44,16 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
         <!--        <dependency>-->
-        <!--            <groupId>org.postgresql</groupId>-->
-        <!--            <artifactId>postgresql</artifactId>-->
+        <!--            <groupId>mysql</groupId>-->
+        <!--            <artifactId>mysql-connector-java</artifactId>-->
         <!--            <scope>runtime</scope>-->
         <!--        </dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
